@@ -1,4 +1,4 @@
-# Indian IPO Intelligence Engine
+# 🇮🇳 Indian IPO Intelligence Engine
 ### A Complete End-to-End Machine Learning Research Project on Indian IPO Markets (2010–2025)
 
 ---
@@ -256,7 +256,7 @@ HNI                    2      0.36
 
 > A yellow-on-blue heatmap where each row is an IPO and each column is a numeric feature. Yellow cells = missing values. This makes it immediately obvious that missing data is concentrated in the CMP columns (post-listing prices) and almost absent from subscription columns.
 
-![Missing Values Heatmap](missing_values_heatmap.png)
+![Missing Values Heatmap](https://github.com/arham7s/Indian-IPO-Analysis-2010-2025/blob/main/Outputs/missing_values_heatmap.png)
 
 *The heatmap shows that missing values are concentrated in CMP_BSE, CMP_NSE, and Current_Gain_Pct — all post-listing prices. QIB/HNI/RII/Total have only 2 rows each missing, which are safely imputed.*
 
@@ -406,13 +406,13 @@ RII_Dominant :  69 IPOs (12.3%)
 3. `Strong_Listing` binary count (>15% vs below)
 4. `Dominant_Investor` type counts (QIB/HNI/RII)
 
-![Label Distributions](label_distributions.png)
+![Label Distributions](https://github.com/arham7s/Indian-IPO-Analysis-2010-2025/blob/main/Outputs/label_distributions.png)
 
 *This chart reveals the class imbalance landscape before modeling: 69.3% positive listings but only 36.4% strong listings, and QIB/HNI dominant IPOs far outnumber RII-dominant ones.*
 
 **`feature_distributions.png`** — An 8-panel histogram grid showing the distribution of all engineered numeric features (QIB_Ratio, HNI_Ratio, RII_Ratio, Sub_Imbalance, Log_Issue_Size, Log_Total, Log_Issue_Price, Listing_Gain_Pct), with median and mean lines annotated and skewness displayed on each panel.
 
-![Feature Distributions](feature_distributions.png)
+![Feature Distributions](https://github.com/arham7s/Indian-IPO-Analysis-2010-2025/blob/main/Outputs/feature_distributions.png)
 
 *Key insight: Listing_Gain_Pct is visibly right-skewed with outliers above 200%, which directly motivates the non-parametric testing approach in Step 4.*
 
@@ -443,7 +443,7 @@ Listing_Gain_Pct  561.0  18.1   38.5  -38.7   0.0   7.4    27.0    252.8      2.
 
 **`eda_b1_distributions.png`** — An 8-panel (2×4) histogram grid showing distributions of: `Issue_Size`, `Total`, `QIB`, `HNI`, `Issue_Price`, `Listing_Gain_Pct`, `Current_Gain_Pct`, `Log_Total`. Each panel annotates median (dashed) and mean (dotted) lines, plus skewness value.
 
-![EDA Distributions](eda_b1_distributions.png)
+![EDA Distributions](https://github.com/arham7s/Indian-IPO-Analysis-2010-2025/blob/main/Outputs/eda_b1_distributions.png)
 
 *Critical finding: Issue_Size and Total subscription are extremely right-skewed (skewness >5), confirming that log transforms were essential in Step 2. Listing_Gain_Pct has skewness ~2.8 and kurtosis ~12 — far from normal.*
 
@@ -452,7 +452,7 @@ Listing_Gain_Pct  561.0  18.1   38.5  -38.7   0.0   7.4    27.0    252.8      2.
 2. **Subscription Category** (Low/Medium/High) — does oversubscription predict gains?
 3. **Listing Category** (Negative/Modest/Strong/Exceptional) — distribution shape within each outcome class
 
-![EDA Boxplots](eda_b2_boxplots.png)
+![EDA Boxplots](https://github.com/arham7s/Indian-IPO-Analysis-2010-2025/blob/main/Outputs/eda_b2_boxplots.png)
 
 *The subscription category boxplot is the most important: High subscription (>50×) IPOs clearly have a higher median and wider upper range, foreshadowing the Spearman ρ = 0.73 finding in Step 4.*
 
@@ -460,7 +460,7 @@ Listing_Gain_Pct  561.0  18.1   38.5  -38.7   0.0   7.4    27.0    252.8      2.
 
 **`eda_c1_correlation.png`** — A full Pearson correlation heatmap of all numeric features. Key correlations shown with colour intensity (red = strong positive, blue = strong negative). Annotations show r values to 2 decimal places.
 
-![Correlation Heatmap](eda_c1_correlation.png)
+![Correlation Heatmap](https://github.com/arham7s/Indian-IPO-Analysis-2010-2025/blob/main/Outputs/eda_c1_correlation_heatmap.png)
 
 *Standout correlations: Total ↔ Listing_Gain_Pct (r = 0.54 Pearson), QIB_plus_HNI ↔ Total (r = 0.98), Log_Total ↔ Listing_Gain_Pct (r = 0.60).*
 
@@ -471,7 +471,7 @@ Listing_Gain_Pct  561.0  18.1   38.5  -38.7   0.0   7.4    27.0    252.8      2.
 2. **Average issue size by year** — is the market listing bigger deals over time?
 3. **Average listing gain % by year** — tracking the bull/bear cycles
 
-![Time Trends](eda_d1_time_trends.png)
+![Time Trends](https://github.com/arham7s/Indian-IPO-Analysis-2010-2025/blob/main/Outputs/eda_d1_ipo_volume_size.png)
 
 *Key observations: The 2020–21 bull market stands out sharply with average gains of +34.5% across 81 IPOs. 2022 saw a correction. 2023–25 shows a recovery with high volume but more moderate individual gains.*
 
@@ -483,7 +483,7 @@ Listing_Gain_Pct  561.0  18.1   38.5  -38.7   0.0   7.4    27.0    252.8      2.
 3. Average listing gain by subscription decile (monotonically increasing?)
 4. QIB vs HNI vs RII subscription scatter (who correlates with listing gains?)
 
-![Subscription Analysis](eda_e1_subscription.png)
+![Subscription Analysis](https://github.com/arham7s/Indian-IPO-Analysis-2010-2025/blob/main/Outputs/eda_e1_subscription_dist.png)
 
 *This is one of the most important charts in the project: win rate and average gain increase monotonically with subscription decile — there is NO ceiling effect. The highest decile (>100× subscribed) has a win rate near 100% and average gains >80%.*
 
@@ -493,7 +493,7 @@ Listing_Gain_Pct  561.0  18.1   38.5  -38.7   0.0   7.4    27.0    252.8      2.
 1. **Top 15 IPOs by listing gain** — with company names, gain percentages, and subscription multiples annotated
 2. **Bottom 15 IPOs by listing gain** — the worst performers, with context on their subscription
 
-![Top Bottom Performers](eda_f1_top_bottom.png)
+![Top Bottom Performers](https://github.com/arham7s/Indian-IPO-Analysis-2010-2025/blob/main/Outputs/eda_f1_top_bottom.png)
 
 *Best performer: Sigachi Industries +252.76% (2021) with 226× subscription. Worst performer: Parachute Ltd equivalent circa -38.7%. Notable: almost all top performers had subscription >100× while almost all bottom performers had <5×.*
 
@@ -501,8 +501,7 @@ Listing_Gain_Pct  561.0  18.1   38.5  -38.7   0.0   7.4    27.0    252.8      2.
 
 **`eda_g1_scatter.png`** — A scatter plot of `Total` subscription vs `Listing_Gain_Pct`, coloured by `Dominant_Investor` type, with a LOWESS trend line overlaid. Pearson and Spearman correlations annotated in the corner.
 
-![Scatter Plot](eda_g1_scatter.png)
-
+![Scatter Plot](https://github.com/arham7s/Indian-IPO-Analysis-2010-2025/blob/main/Outputs/eda_e2_subscription_scatter.png)
 *The positive trend is clear but nonlinear — gains accelerate rapidly above ~50× subscription. HNI-dominant points (teal) cluster in the upper-right (high subscription, high gains), while RII-dominant points (red) cluster in the lower-left.*
 
 ### Section H — Seasonality Analysis
@@ -511,7 +510,7 @@ Listing_Gain_Pct  561.0  18.1   38.5  -38.7   0.0   7.4    27.0    252.8      2.
 1. **Average listing gain by month** — bar chart with error bars (95% CI)
 2. **Average listing gain by quarter** — Q1/Q2 vs Q3/Q4 comparison
 
-![Seasonality](eda_h1_seasonality.png)
+![Seasonality](https://github.com/arham7s/Indian-IPO-Analysis-2010-2025/blob/main/Outputs/eda_g1_seasonality.png)
 
 *Q3 and Q4 consistently outperform Q1 and Q2 by roughly 7–15 percentage points. October–December is historically the strongest period for Indian IPO listings.*
 
@@ -519,7 +518,7 @@ Listing_Gain_Pct  561.0  18.1   38.5  -38.7   0.0   7.4    27.0    252.8      2.
 
 **`eda_i1_pairplot.png`** — A `seaborn.pairplot()` of the 5 most important variables (`Total`, `QIB_Ratio`, `HNI_Ratio`, `Listing_Gain_Pct`, `Log_Issue_Size`), coloured by `Dominant_Investor`. Diagonal shows KDE distributions per investor type; off-diagonal shows scatter plots.
 
-![Pairplot](eda_i1_pairplot.png)
+![Pairplot](https://github.com/arham7s/Indian-IPO-Analysis-2010-2025/blob/main/Outputs/eda_h1_pairplot.png)
 
 *The pairplot visually confirms the separation between investor dominance groups: HNI-dominant IPOs (green) cluster towards higher Total subscription and higher listing gains, while RII-dominant IPOs (red) cluster at low subscription and low gains.*
 
@@ -565,7 +564,7 @@ Skewness = **2.83** (right-skewed), Kurtosis = **12.3** (very heavy tails)
 1. Histogram of `Listing_Gain_Pct` with mean (red dashed) and median (green dash-dot) lines, skewness/kurtosis annotated
 2. Q-Q plot vs Normal distribution — points clearly deviate from the reference line at both tails, especially the upper tail
 
-![Normality Test](stat_a_normality.png)
+![Normality Test](https://github.com/arham7s/Indian-IPO-Analysis-2010-2025/blob/main/Outputs/stat_a_normality.png)
 
 *The Q-Q plot is definitive: the upper-right tail dramatically departs from the normal reference line, confirming that extreme positive outliers (200%+ gains) make this distribution fundamentally non-normal.*
 
@@ -573,7 +572,7 @@ Skewness = **2.83** (right-skewed), Kurtosis = **12.3** (very heavy tails)
 
 **`stat_b_correlations.png`** — Side-by-side Pearson and Spearman correlation heatmaps for the 8 most important numeric features. The Spearman version is more appropriate given the non-normal distribution.
 
-![Correlations](stat_b_correlations.png)
+![Correlations](https://github.com/arham7s/Indian-IPO-Analysis-2010-2025/blob/main/Outputs/stat_b_correlations.png)
 
 *Spearman ρ between `Total` and `Listing_Gain_Pct` = **0.73** — the single strongest predictor in the entire dataset. Spearman consistently shows stronger correlations than Pearson for subscription features, confirming the nonlinear relationship seen in the scatter plots.*
 
@@ -610,7 +609,7 @@ Group means:
 
 **`stat_c_subscription_groups.png`** — Bar chart with 95% bootstrap confidence intervals for each subscription group, plus a violin overlay showing the full distribution shape.
 
-![Subscription Groups](stat_c_subscription_groups.png)
+![Subscription Groups](https://github.com/arham7s/Indian-IPO-Analysis-2010-2025/blob/main/Outputs/stat_c_subscription_groups.png)
 
 ### Section D — Issue Size Group Test
 
@@ -650,7 +649,7 @@ This is the most important section of Step 4. It quantifies the performance diff
 
 **Panel 4:** Bootstrap confidence interval comparison (2000 resamples per group)
 
-![Behavioural Analysis](stat_f1_behavioural.png)
+![Behavioural Analysis](https://github.com/arham7s/Indian-IPO-Analysis-2010-2025/blob/main/Outputs/stat_f1_behavioural_listing.png)
 
 *This is the most important chart in the entire project. The difference between HNI-dominant and RII-dominant IPOs is staggering: +22 percentage points in average gain, and a 18-point gap in win rate.*
 
@@ -672,7 +671,7 @@ QIB vs RII: p = 0.089  ns    (QIB vs RII not significant after correction)
 
 **`stat_f2_holdflip.png`** — Hold vs Flip analysis by investor type:
 
-![Hold Flip](stat_f2_holdflip.png)
+![Hold Flip](https://github.com/arham7s/Indian-IPO-Analysis-2010-2025/blob/main/Outputs/stat_h_hold_vs_flip.png)
 
 ```
 Overall Hold > Flip rate: 50.6%  (near 50/50 — context is everything)
@@ -687,7 +686,7 @@ By investor type:
 
 **`stat_g_deciles.png`** — Plots average listing gain and win rate by subscription decile (D1 = lowest 10%, D10 = highest 10%). Confirms the monotone relationship is strictly increasing with no plateau.
 
-![Decile Analysis](stat_g_deciles.png)
+![Decile Analysis](https://github.com/arham7s/Indian-IPO-Analysis-2010-2025/blob/main/Outputs/stat_g_oversub_decile.png)
 
 *D10 (top subscription decile, >100×): avg gain = +84.2%, win rate = 98.1%. D1 (bottom decile, <2×): avg gain = -4.1%, win rate = 31.2%.*
 
@@ -783,17 +782,17 @@ Five models are trained and evaluated:
 
 **`model_c1_regression_comparison.png`** — Bar chart comparing all 5 models on MAE, RMSE, and R²:
 
-![Regression Comparison](model_c1_regression_comparison.png)
+![Regression Comparison](https://github.com/arham7s/Indian-IPO-Analysis-2010-2025/blob/main/Outputs/model_g1_regression_diagnostics.png)
 
 **`model_c2_predicted_vs_actual.png`** — Scatter plot of RF predictions vs actual listing gains on the test set, with the ideal y=x line drawn. Points are coloured by prediction error magnitude:
 
-![Predicted vs Actual](model_c2_predicted_vs_actual.png)
+![Predicted vs Actual](https://github.com/arham7s/Indian-IPO-Analysis-2010-2025/blob/main/Outputs/model_g2_feature_importance.png)
 
 *The model is well-calibrated for gains in the 0–40% range but under-predicts extreme outliers (>100% gains). This is expected — black-swan IPO gains are inherently hard to predict from subscription data alone.*
 
 **`model_c3_residuals.png`** — Residual plot (predicted vs residual) and residual histogram. Residuals should be centred near zero with no systematic pattern:
 
-![Residuals](model_c3_residuals.png)
+![Residuals](https://github.com/arham7s/Indian-IPO-Analysis-2010-2025/blob/main/Outputs/model_g3_classification_diagnostics.png)
 
 **5-Fold Cross-Validation (Random Forest):**
 ```
