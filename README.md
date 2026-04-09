@@ -1,4 +1,4 @@
-# 🇮🇳 IPO Intelligence Engine
+# Indian IPO Intelligence Engine
 ### A Complete End-to-End Machine Learning Research Project on Indian IPO Markets (2010–2025)
 
 ---
