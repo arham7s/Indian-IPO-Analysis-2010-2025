@@ -1,0 +1,7 @@
+Model,MAE,RMSE,R²,Adj R²
+Tuned RF (best),11.69,18.96,0.526,0.441
+XGBoost,11.63,18.98,0.525,0.439
+Random Forest,11.92,20.03,0.47,0.376
+Lasso Regression,12.99,21.14,0.41,0.305
+Linear Regression,12.99,21.16,0.409,0.303
+Ridge Regression,13.21,21.34,0.399,0.292
